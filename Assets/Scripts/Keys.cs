@@ -7,7 +7,6 @@ public class Keys : MonoBehaviour {
 
 	public float speed;
 	public Text countText;
-	public Text winText;
 
 	private Rigidbody rb;
 	private int count;
@@ -16,7 +15,6 @@ public class Keys : MonoBehaviour {
 	{
 		rb = GetComponent<Rigidbody>();
 		count = 0;
-		winText.text = "";
 	}
 		
 	public Vector3 CalculateDirection()
@@ -43,13 +41,9 @@ public class Keys : MonoBehaviour {
 	}
 
 	void ThroughHoop (){
-		if (transform.position.x == -0.342273 || transform.position.y == 0.5470079) {
+		if (transform.position.x >= -0.3 && transform.position.x <= 0.3 && transform.position.y >= 0.4 && transform.position.y <= 0.7) {
 			count++;
 			countText.text = "Score: " + count.ToString ();
-			if (count >= 12)
-			{
-				winText.text = "You Win!";
-			}
 		}
 	}
 	
